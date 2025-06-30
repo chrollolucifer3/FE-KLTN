@@ -1,0 +1,11 @@
+version: "1.0"
+
+services:
+  app:
+    container_name: "base-front-end"
+    image: "base-front-end"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 127.0.0.1:8080:80

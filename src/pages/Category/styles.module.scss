@@ -1,0 +1,98 @@
+@import "src/assets/scss/variables";
+
+.userManagementWrap {
+  background: $colorWhite;
+  padding: 10px;
+  border-radius: 4px;
+  .mainWrap {
+    .headerMainWrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .title {
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .btnWrap {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 14px;
+        font-weight: 500;
+
+        .btnSave {
+          min-width: 80px;
+          border: none;
+          background-color: $mainColor;
+        }
+      }
+    }
+
+    .boxFilterWrap {
+      margin-bottom: 2px;
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+
+      .inputWrap {
+        width: 100%;
+        position: relative;
+        margin-right: 10px;
+
+        input {
+          border: 1px solid $colorBorderInput;
+          border-radius: 3px;
+          padding-right: 40px;
+        }
+
+        svg {
+          position: absolute;
+          top: 16px;
+          right: 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.nameWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .imgWrap {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.btnAction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .btnWrap {
+    display: flex;
+
+    img {
+      cursor: pointer;
+      margin-right: 12px;
+    }
+
+    &:last-child {
+      img {
+        margin-right: 0;
+      }
+    }
+  }
+}

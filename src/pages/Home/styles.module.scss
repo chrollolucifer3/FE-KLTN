@@ -1,0 +1,51 @@
+@import "src/assets/scss/variables";
+
+.dashboardWrap {
+  .overviewWrap {
+    .itemWrap {
+      background: $colorWhite;
+      padding: 20px;
+      border-radius: 4px;
+      height: 100%;
+      .personalWrap {
+        .labelWrap {
+          font-size: 13px;
+          margin-bottom: 10px;
+        }
+        .numberWrap {
+          font-size: 28px;
+          color: $colorBlack;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        .dateUpdate {
+          font-size: 12px;
+          color: $colorNote
+        }
+      }
+
+      .iconWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .iconUser {
+        color: rgb(5, 195, 251);
+      }
+
+      .iconChart1 {
+        color: #ec82ef;
+      }
+
+      .iconChart2 {
+        color: #f7b731;
+      }
+
+      .iconMoney {
+        color: rgb(78, 204, 72);
+      }
+    }
+  }
+}

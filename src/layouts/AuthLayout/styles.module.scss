@@ -1,0 +1,84 @@
+@import "../../../src/assets/scss/variables";
+
+.layoutAuthWrap {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../../src/assets/images/background/auth.jpg");
+  &:before {
+    content: "";
+    background: linear-gradient(to right, rgba(108, 95, 252, 0.6) 0%, #05c3fb91 100%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .mainWrap {
+    .form {
+      background: $colorWhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 500px;
+      min-height: 200px;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+      box-shadow: 5px 5px 15px 0 rgb(0 0 0 / 55%);
+      overflow: hidden;
+      .headerWrap {
+        width: 100%;
+        height: 150px;
+        background-image: url("../../../src/assets/images/background/auth.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        &::before {
+          content: "";
+          background: linear-gradient(to right, rgba(108, 95, 252, 0.6) 0%, #05c3fb91 100%);
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          z-index: 1;
+        }
+        .boxHeaderWrap {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: $colorWhite;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 512px) {
+  .layoutAuthWrap {
+    padding: 10px;
+    .mainWrap {
+      width: 100%;
+      .form {
+        width: 100%;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

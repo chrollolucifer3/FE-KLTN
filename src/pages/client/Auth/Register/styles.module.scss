@@ -1,0 +1,50 @@
+@import "../../../../assets/scss/variables";
+
+.registerWrap {
+  width: 100%!important;
+  padding: 30px 20px;
+  .inputWrapper {
+    margin-bottom: 18px;
+
+    .label {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: $colorBlack;
+      margin-bottom: 4px;
+    }
+
+    .error {
+      display: block;
+      color: $colorError;
+      font-weight: 500;
+    }
+  }
+
+  .btnUtilitiesWrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    .btnForgetPassword {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  .btnWrap {
+    margin-bottom: 15px;
+  }
+
+  .btnSwitchWrap {
+    display: flex;
+    justify-content: center;
+    .btnRegister {
+      text-align: center;
+      .text {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}

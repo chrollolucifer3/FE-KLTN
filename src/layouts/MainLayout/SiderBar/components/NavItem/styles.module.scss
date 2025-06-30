@@ -1,0 +1,138 @@
+@import "src/assets/scss/variables";
+
+/* Nav item */
+.navItemWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 14px 22px;
+
+  .textWrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .iconWrap {
+      width: 25px;
+      display: flex;
+      justify-content: center;
+      color: $colorBlack;
+    }
+
+    .text {
+      font-weight: 500;
+      color: $colorBlack;
+      margin-left: 15px;
+      clear: both;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  .btnDrop {
+    font-size: 11px;
+    transition: all 0.3s;
+    svg {
+      color: $colorBlack;
+    }
+  }
+}
+
+.navItemCloseWrap {
+  justify-content: center;
+}
+
+.navItemActiveWrap {
+  .textWrap {
+    .text, g{
+      color: $colorActive;
+    }
+  }
+
+  .btnDrop {
+    transition: 0.3s;
+    transform: rotate(180deg);
+  }
+}
+
+.activeNavItemAndSubMenuWrap {
+  .btnDrop {
+    transition: 0.3s;
+    transform: rotate(180deg);
+  }
+}
+
+/* Sub menu */
+.menuSubNav {
+  list-style: none;
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.2s;
+
+  .menuSubNavItem {
+    width: 100%;
+    background-color: $mainColor;
+    color: $colorBlack;
+    transition: all 0.3s;
+    &:hover {
+      color: $colorActive;
+    }
+
+    .contentSubNavItemWrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 15px 15px 15px 55px;
+
+      .textWrap {
+        display: flex;
+        justify-content: flex-start;
+
+        .text {
+          font-weight: 500;
+          margin-left: 10px;
+          clear: both;
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .menuSubFoSubItemActive {
+      .textWrap {
+        color: $colorActive;
+        transition: 0.5s;
+      }
+    }
+  }
+}
+
+.menuSubForSubItemActive {
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.5s;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    transition: all 2s;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(217, 219, 226, 0);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(217, 219, 226, 0);
+    border-radius: 8px;
+    transition: all 2s;
+  }
+}
+

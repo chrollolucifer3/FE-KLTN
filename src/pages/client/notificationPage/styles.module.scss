@@ -1,0 +1,50 @@
+@import "../../../assets/scss/variables.scss";
+
+.container {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item {
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 8px;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+
+  &.unread {
+    background: #e6f7ff;
+    padding: 12px 16px ;
+
+    strong {
+      color: #000;
+    }
+
+    div {
+      color: #333;
+    }
+    &:hover {
+      background: #bae7ff;
+    }
+  }
+
+  &.read {
+    background: #fff;
+    padding: 12px 16px;
+
+    strong {
+      color: #888;
+    }
+    &:hover {
+      background: #f5f5f5;
+    }
+
+    div {
+      color: #999;
+    }
+  }
+}

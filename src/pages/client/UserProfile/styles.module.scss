@@ -1,0 +1,66 @@
+@import "src/assets/scss/variables";
+
+.profileWrap {
+  .profileItem {
+    background: $colorWhite;
+    border-radius: 4px;
+    padding: 0;
+    margin-bottom: 20px;
+
+    .informationWrap {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-block-end: 1px solid $colorBorderDefault;
+      padding: 15px;
+      .avatarWrap {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        color: $colorBlack;
+        margin-bottom: 10px;
+
+        .btnChangeAvatar {
+          width: 100%;
+          height: 20px;
+          bottom: 0;
+          background: rgba(242, 244, 247, 0.71);
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          transition: all 0.1s;
+        }
+
+        &:hover .btnChangeAvatar {
+          opacity: 1;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .infoWrap {
+        margin-left: 15px;
+        .name {
+          font-size: 18px;
+          margin-bottom: 5px;
+          color: $colorBlack;
+        }
+        .bod {
+          color: $colorNote;
+        }
+      }
+    }
+
+    .tabWrap {
+      padding: 0 10px;
+    }
+  }
+}

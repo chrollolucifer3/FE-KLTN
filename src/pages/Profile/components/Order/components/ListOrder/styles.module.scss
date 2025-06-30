@@ -1,0 +1,39 @@
+@import "src/assets/scss/variables";
+
+.listOrderWrap {
+  margin-top: 10px;
+  .orderItemWrap {
+    background: $colorWhite;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    .headerOrderItemWrap {
+      border-block-end: 1px dashed #e9edf4;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .brandWrap {
+        .imgWrap {
+          width: 100px;
+          display: flex;
+          align-items: center;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      .totalMoney {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+    }
+    .mainOrderItemWrap {
+      padding: 10px;
+    }
+    .footerOrderItemWrap {
+      padding: 10px;
+    }
+  }
+}

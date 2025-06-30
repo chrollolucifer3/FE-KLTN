@@ -1,0 +1,23 @@
+@import "src/assets/scss/variables";
+
+.selectWrap {
+  width: 100%;
+  .ant-select-selector {
+    height: 40px!important;
+    padding: 5px 11px!important;
+    border-radius: 3px;
+    border-color: $colorBorderInput;
+  }
+
+  &:hover {
+    .ant-select-selector {
+      border-color: $colorBlue;
+      background-color: aqua!important;
+    }
+  }
+  .errors {
+    font-size: 14px;
+    font-weight: 500;
+    color: $colorTextError!important;
+  }
+}

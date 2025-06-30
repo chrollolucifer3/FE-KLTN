@@ -1,0 +1,122 @@
+@import "../../../assets/scss/variables";
+
+.switch-style-custom {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
+  .ant-switch {
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 14px;
+    line-height: 14px;
+
+    .ant-switch-handle::before {
+      width: 18px;
+      height: 18px;
+      top: -4px;
+      left: -4px;
+    }
+
+    .ant-switch-handle::after {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      bottom: 0;
+      left: 2px;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 9px;
+      box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+      transition: all 0.2s ease-in-out;
+      content: '';
+      width: 6px;
+      height: 6px;
+    }
+
+    &:enabled:hover {
+      background-color: $colorBackgroundHover!important;
+      .ant-switch-handle::after {
+        background-color: $colorBackgroundHover!important;
+      }
+    }
+  }
+
+  .ant-switch-checked {
+    background-color: $colorBackgroundChecked !important;
+
+    .ant-switch-handle::after {
+      background-color: $colorBackgroundChecked;
+      left: 4px;
+    }
+
+    .ant-switch-handle::before {
+      left: -2px;
+    }
+
+    &:enabled:hover {
+      background-color: $colorBackgroundCheckedHover!important;
+      .ant-switch-handle::after {
+        background-color: $colorBackgroundCheckedHover!important;
+      }
+    }
+  }
+}
+
+.switch-table-style-custom {
+  display: flex;
+
+  .ant-switch {
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 11px;
+    line-height: 11px;
+    width: 21px;
+    min-width: 21px;
+
+    .ant-switch-handle::before {
+      width: 14px;
+      height: 14px;
+      top: -4px;
+      left: -3px;
+    }
+
+    .ant-switch-handle::after {
+      position: absolute;
+      top: 1px;
+      bottom: 0;
+      left: 2px;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 9px;
+      box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+      transition: all 0.2s ease-in-out;
+      content: '';
+      width: 4px;
+      height: 4px;
+    }
+
+    &:enabled:hover {
+      background-color: $colorBackgroundHover!important;
+      .ant-switch-handle::after {
+        background-color: $colorBackgroundHover!important;
+      }
+    }
+  }
+
+  .ant-switch-checked {
+    background-color: $colorBackgroundChecked !important;
+
+    .ant-switch-handle::after {
+      background-color: $colorBackgroundChecked;
+      left: 6px;
+    }
+
+    .ant-switch-handle::before {
+      left: 1px;
+    }
+
+    &:enabled:hover {
+      background-color: $colorBackgroundCheckedHover!important;
+      .ant-switch-handle::after {
+        background-color: $colorBackgroundCheckedHover!important;
+      }
+    }
+  }
+}

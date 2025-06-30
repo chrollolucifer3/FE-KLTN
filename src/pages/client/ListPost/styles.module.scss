@@ -1,0 +1,68 @@
+@import "../../../assets/scss/variables.scss";
+
+.listPostWrapper {
+  padding: 24px;
+  background: #fff;
+  min-height: 100vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.breadcrumb {
+  margin-bottom: 16px;
+
+  .ant-breadcrumb-link {
+    cursor: pointer;
+    color: #1677ff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.categoryTitle {
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.listItem {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+    .postTitle  {
+      color: #1677ff;
+    }
+  }
+
+  .postTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .postDate {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+  }
+}
+
+.emptyWrap {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 24px;
+}

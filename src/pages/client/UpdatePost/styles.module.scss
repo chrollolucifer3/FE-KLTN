@@ -1,0 +1,79 @@
+@import "../../../assets/scss/variables.scss";
+.mainModalWrap {
+  max-width: 960px;
+  margin: 32px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.inputWrapper {
+  margin-bottom: 24px;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.errorText {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #ff4d4f;
+}
+
+.editorQuill {
+  .ql-toolbar {
+    border-radius: 6px 6px 0 0;
+    background-color: #f9f9f9;
+  }
+
+  .ql-container {
+    min-height: 280px;
+    border-radius: 0 0 6px 6px;
+    font-size: 15px;
+  }
+
+  .ql-editor {
+    line-height: 1.6;
+    padding-bottom: 40px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    .katex {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.btnWrap {
+  margin-top: 32px;
+  text-align: right;
+
+  button {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 24px;
+    background-color: #1677ff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #0958d9;
+    }
+  }
+}

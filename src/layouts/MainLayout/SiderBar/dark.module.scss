@@ -1,0 +1,47 @@
+@import "src/assets/scss/variables";
+@import "./styles.module";
+
+.sideBarWrap {
+  background-color: $mainColorDark;
+  .logoWrap {
+    background-color: $mainColorDark;
+    border-block-end-color: #ffffff1a;
+    border-inline-end-color: #ffffff1a;
+  }
+  .navbarWrap {
+    border-block-end-color: #ffffff1a;
+    border-inline-end-color: #ffffff1a;
+    .menuNav {
+      .menuNavItem {
+        background-color: $mainColorDark;
+        &:hover {
+          background-color: $mainColorDark;
+        }
+      }
+      .menuNavItemActive {
+        background-color: $mainColorDark;
+      }
+    }
+  }
+
+  .btnToggleIsShowSideBar {
+    background-color: $mainColorDark;
+    border-inline-end: 1px solid #ffffff1a;
+  }
+
+  .boxMenuSubWrap {
+    .listMenuSub {
+      .menuSubClose {
+        .menuSubCloseItem {
+          background-color: $mainColorDark;
+          &:hover {
+            background-color: $mainColorDark;
+          }
+          .menuSubItemActive {
+            background-color: $mainColorDark;
+          }
+        }
+      }
+    }
+  }
+}

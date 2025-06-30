@@ -1,0 +1,66 @@
+@import "../../../../src/assets/scss/variables.scss";
+
+
+  .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.authorCard {
+  margin-bottom: 24px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.authorName {
+  margin-bottom: 0;
+}
+
+.authorInfo {
+  font-size: 14px;
+  color: #555;
+}
+
+.postListWrap {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.postListTitle {
+  margin-bottom: 16px;
+}
+
+.postItem {
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.postItem:last-child {
+  border-bottom: none;
+}
+
+.postTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1890ff;
+
+  &:hover {
+    color: #40a9ff;
+  }
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.spinWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}

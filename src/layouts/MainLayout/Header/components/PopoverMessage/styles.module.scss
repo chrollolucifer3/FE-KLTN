@@ -1,0 +1,87 @@
+@import "src/assets/scss/variables";
+
+.modalMessageWrap {
+  min-width: 250px;
+  max-width: 400px;
+  background-color: $mainColor;
+  border-radius: 4px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    height: 12px;
+    width: 12px;
+    top: -6px;
+    right: 15px;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    background-color: $mainColor;
+    transform: rotateZ(45deg);
+  }
+
+  .headerWrap {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 13px;
+    border-block-end: 1px solid $colorBorderDefault;
+    font-weight: 600;
+  }
+
+  .mainModalInfoWrap {
+    .menuInfoWrap {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border: 10px;
+
+      .itemInfoWrap {
+        padding: 12px 15px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.3s;
+        color: $colorBlack;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-block-end: 1px solid $colorBorderDefault;
+        .iconWrap {
+          min-width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background: rgb(108,95,252);;
+          box-shadow: 0 5px 10px rgba(108,95,252,.3);
+          color: $colorWhite;
+        }
+        .contentWrap {
+          margin-left: 10px;
+          .date {
+            font-size: 12px;
+            color: $colorNote;
+          }
+        }
+
+        &:hover {
+          background: $backgroundHoverMain;
+        }
+      }
+    }
+  }
+
+  .footerWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: $colorNote;
+    &:hover {
+      background: $backgroundHoverMain;
+    }
+  }
+}

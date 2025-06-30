@@ -1,0 +1,114 @@
+@import "../../assets/scss/variables";
+
+.boxMainLayout {
+  background-color: #F3F3F3;
+
+  .headerBox {
+    height: 60px;
+    background: $colorWhite;
+    margin-bottom: -60px;
+  }
+}
+
+.boxMainLayoutShowBackGround {
+  background-color: #f2f4f7;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mainLayoutWrap {
+  max-width: 1920px;
+  margin: auto;
+
+  .mainWrap {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    transition: all 0.5s;
+    height: 100vh;
+
+    .mainContentWrap {
+      height: calc(100% - 60px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      background-color: $backgroundMain;
+      padding: 31px 22px 30px 22px;
+
+      .headerMainWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        .titleWrap {
+          font-size: 20px;
+          color: $colorBlack;
+        }
+        .breadcrumbWrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .text {
+            font-size: 13px;
+            color: $colorNote;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+              color: $colorActive;
+            }
+          }
+          .slash {
+            font-size: 13px;
+            color: $colorNote;
+            margin: 0 5px;
+          }
+
+          .breadcrumbActive {
+            color: $colorActive;
+          }
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 7px;
+        transition: all 2s;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(217, 219, 226, 0);
+        border-radius: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(217, 219, 226, 0);
+        border-radius: 8px;
+        transition: all 2s;
+      }
+
+      &:hover::-webkit-scrollbar-thumb:vertical {
+        background-color: rgba(119, 111, 111, 0.68);
+      }
+
+      &::-webkit-scrollbar-thumb:vertical:hover {
+        background-color: rgba(133, 133, 133, 0.68);
+      }
+    }
+  }
+
+  .mainWrapWithConditionSideBarClose {
+    width: calc(100% - 64px);
+    margin-left: 64px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .mainWrap {
+      width: calc(100% - 64px);
+      margin-left: 64px;
+      transition: all 0.5s;
+      height: 100vh;
+    }
+    .mainWrapWithConditionSideBarClose {
+      width: calc(100% - 64px);
+      margin-left: 64px;
+    }
+  }
+}

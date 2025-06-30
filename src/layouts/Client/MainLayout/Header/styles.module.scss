@@ -1,0 +1,56 @@
+.header {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 24px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search {
+  flex: 1;
+  margin: 0 16px;
+  max-width: 350px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.postLink, .drawerLink {
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;  
+  margin: 0 8px;
+
+  &:hover {
+    color: #0958d9;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.avatar {
+  cursor: pointer;
+  background-color: #87d068;
+}

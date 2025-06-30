@@ -1,0 +1,14 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="chart-growth 1" clip-path="url(#clip0_4352_56826)">
+<g id="Group">
+<path id="Vector" d="M8 0L3 6H6V15C6 15.6 6.4 16 7 16H9C9.6 16 10 15.6 10 15V6H13L8 0Z" fill="white"/>
+<path id="Vector_2" d="M3 11H1C0.4 11 0 11.4 0 12V15C0 15.6 0.4 16 1 16H3C3.6 16 4 15.6 4 15V12C4 11.4 3.6 11 3 11Z" fill="white"/>
+<path id="Vector_3" d="M15 8H13C12.4 8 12 8.4 12 9V15C12 15.6 12.4 16 13 16H15C15.6 16 16 15.6 16 15V9C16 8.4 15.6 8 15 8Z" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_4352_56826">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

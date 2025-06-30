@@ -1,0 +1,19 @@
+@import "../../../assets/scss/variables";
+
+.selectWrap { 
+  
+  .ant-select-selector {
+    border: 1px solid $colorBorderInput;
+    border-radius: 1px;
+    line-height: 2.2 !important;
+    &:hover, &:focus {
+      border: 1px solid $colorBorderInput;
+    }
+  }
+
+  .errors {
+    font-size: 14px;
+    font-weight: 500;
+    color: $colorTextError!important;
+  }
+}

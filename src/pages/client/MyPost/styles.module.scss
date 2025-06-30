@@ -1,0 +1,69 @@
+@import "../../../assets/scss/variables.scss";
+.wrapper {
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  min-height: 80vh;
+}
+
+.cardPost {
+  border: 1px solid #f0f0f0;
+  transition: box-shadow 0.3s;
+  border-radius: 10px;
+  padding: 16px;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.title {
+  color: #1677ff;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #0958d9;
+  }
+}
+
+.selectStatus {
+  min-width: 100px!important;
+  margin-left: 8px;
+}
+
+.postPreview {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.5;
+  max-height: 7.5em;
+  overflow: hidden;
+  display: -webkit-box;
+  // -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  margin-bottom: 0.5em;
+
+  p {
+    margin: 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+  .katex {
+    font-size: 16px;
+  }
+}
+
+.rejectReason {
+  color: #ff4d4f;
+  font-weight: 500;
+}
+
+.editButton {
+  text-align: right;
+  margin-top: 12px;
+}

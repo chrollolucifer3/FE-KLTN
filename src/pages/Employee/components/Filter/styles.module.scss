@@ -1,0 +1,20 @@
+@import "src/assets/scss/variables";
+
+.filterWrap {
+  width: 350px;
+  padding: 10px 10px 0;
+  margin-bottom: 15px;
+  .inputWrap {
+    width: 100%;
+    margin-bottom: 10px;
+    .label {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: $colorBlack;
+      margin-bottom: 4px;
+    } 
+
+  }
+}

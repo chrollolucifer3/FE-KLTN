@@ -1,0 +1,42 @@
+@import "../../../assets/scss/variables";
+
+.forgotPasswordWrap {
+  width: 100%;
+  padding: 30px 20px 30px;
+  .inputWrapper {
+    margin-bottom: 18px;
+
+    .label {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: $colorBlack;
+      margin-bottom: 4px;
+    }
+
+    input {
+      height: 44px;
+    }
+
+    .error {
+      display: block;
+      color: $colorError;
+      font-weight: 500;
+    }
+  }
+
+  .btnWrap {
+    margin-bottom: 15px;
+  }
+
+  .btnSwitchWrap {
+    display: flex;
+    justify-content: center;
+    .btnRegister {
+      cursor: pointer;
+      text-decoration: underline;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import "../../../../assets/scss/variables";
+
+.headerDialogWrap {
+  margin-bottom: 20px;
+  position: relative;
+
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $colorBlack;
+  }
+
+  .btnClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.mainDialog {
+  color: $colorBlack;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .titleMainDialog {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .descriptionMainDialog {
+    text-align: center;
+    font-size: 16px;
+    max-width: 376px;
+    color: $colorText100;
+  }
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+
+  button {
+    height: 43px;
+    min-width: 198px;
+    margin: 0 3px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+  }
+
+  .btnSave {
+    background-color: $mainColorDark;
+    color: $colorWhite;
+  }
+
+  .btnCancel {
+    background-color: $colorBackgroundButtonCancel;
+    color: $colorWhite;
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../../../assets/scss/variables";
+
+.modalWrap {
+  .ant-modal-body {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+.postDetailWrap {
+  .contentBox {
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

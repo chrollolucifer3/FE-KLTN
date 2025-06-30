@@ -1,0 +1,19 @@
+@import "src/assets/scss/variables";
+
+.ant-popover-inner {
+  border-radius: 4px;
+  background-color: $mainColor;
+  padding: 8px !important;
+}
+
+.ant-popover-arrow-content::before {
+  background-color: $mainColor;
+}
+
+.ant-badge-multiple-words {
+  padding: 0 4px;
+}
+
+.ant-popover-arrow {
+  display: none !important;
+}
