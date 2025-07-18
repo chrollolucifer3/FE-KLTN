@@ -9,10 +9,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {setErrorChangePassword, setErrorInfoUser} from "../../../../../states/modules/profile";
 import {handleCheckValidateConfirm} from "../../../../../utils/helper";
 import {handleChangePassword, handleUpdateInfoUser} from "../../../../../api/profile";
+import { getMeUser } from 'api/auth';
 
 function EditProfile () {
   const [dataInfoUser, setDataInfoUser] = useState({
-    name: '',
+    fullName: '',
     email: '',
     phone: ''
   })
@@ -20,8 +21,8 @@ function EditProfile () {
   const loadingBtnUpdateInfoUser = useSelector(state => state.profile.loadingBtnUpdateInfoUser);
   const authUser = useSelector(state => state.auth.authUser);
   const [dataChangePassword, setDataChangePassword] = useState({
-    currentPassword: '',
-    password: '',
+    oldPassword: '',
+    newPassword: '',
     confirmPassword: ''
   })
   const errorChangePassword = useSelector(state => state.profile.errorChangePassword);
@@ -30,13 +31,13 @@ function EditProfile () {
 
   useEffect(() => {
     setDataInfoUser({
-      name: authUser.name,
+      fullName: authUser.fullName,
       email: authUser.email,
       phone: authUser.phone
     })
     setDataChangePassword({
-      currentPassword: '',
-      password: '',
+      oldPassword: '',
+      newPassword: '',
       confirmPassword: ''
     })
   }, [authUser]);
@@ -71,34 +72,41 @@ function EditProfile () {
     return validate.isError;
   }
 
-  const handleConfirmSaveInfoUser = () => {
-    let dataValidate = dataInfoUser;
-    let data = new FormData();
-    data.append(`name`, dataInfoUser.name);
-    data.append(`email`, dataInfoUser.email);
-    data.append(`phone`, dataInfoUser.phone);
+const handleConfirmSaveInfoUser = async () => {
+  const dataValidate = dataInfoUser;
 
-    let validate = handleCheckValidateConfirm(dataValidate, errorInfoUser);
-    dispatch(setErrorInfoUser(validate.dataError));
-    if (!validate.isError) {
-      dispatch(handleUpdateInfoUser(data))
-    }
+  const validate = handleCheckValidateConfirm(dataValidate, errorInfoUser);
+  dispatch(setErrorInfoUser(validate.dataError));
+
+  if (!validate.isError) {
+    const data = {
+      fullName: dataInfoUser.fullName,
+      email: dataInfoUser.email,
+      phone: dataInfoUser.phone
+    };
+
+    await dispatch(handleUpdateInfoUser(data));
+    dispatch(getMeUser());
   }
+};
 
 
-  const handleConfirmChangePassword = () => {
-    let dataValidate = dataChangePassword;
-    let data = new FormData();
-    data.append(`current_password`, dataChangePassword.currentPassword);
-    data.append(`password`, dataChangePassword.password);
-    data.append(`password_confirmation`, dataChangePassword.confirmPassword);
+const handleConfirmChangePassword = () => {
+  const dataValidate = dataChangePassword;
 
-    let validate = handleCheckValidateConfirm(dataValidate, errorChangePassword);
-    dispatch(setErrorChangePassword(validate.dataError));
-    if (!validate.isError) {
-      dispatch(handleChangePassword(data))
-    }
+  const validate = handleCheckValidateConfirm(dataValidate, errorChangePassword);
+  dispatch(setErrorChangePassword(validate.dataError));
+
+  if (!validate.isError) {
+    const data = {
+      oldPassword: dataChangePassword.oldPassword,
+      newPassword: dataChangePassword.newPassword,
+      confirmPassword: dataChangePassword.confirmPassword
+    };
+
+    dispatch(handleChangePassword(data));
   }
+};
 
 
   return (
@@ -114,11 +122,11 @@ function EditProfile () {
                 <div className={styles.label}>Họ và tên *</div>
                 <InputMASQ
                   type={"text"}
-                  placeholder={"Enter name..."}
-                  onChange={(e) => handleChangeInput(e, 'name')}
-                  onBlur={() => validateBlur('name')}
-                  value={dataInfoUser.name}
-                  error={errorInfoUser.name}
+                  placeholder={"Nhập họ và tên..."}
+                  onChange={(e) => handleChangeInput(e, 'fullName')}
+                  onBlur={() => validateBlur('fullName')}
+                  value={dataInfoUser.fullName}
+                  error={errorInfoUser.fullName}
                 />
               </div>
 
@@ -126,7 +134,7 @@ function EditProfile () {
                 <div className={styles.label}>Email *</div>
                 <InputMASQ
                   type={"text"}
-                  placeholder={"Enter email..."}
+                  placeholder={"Nhập email..."}
                   onChange={(e) => handleChangeInput(e, 'email')}
                   onBlur={() => validateBlur('email')}
                   value={dataInfoUser.email}
@@ -138,7 +146,7 @@ function EditProfile () {
                 <div className={styles.label}>Số điện thoại *</div>
                 <InputMASQ
                   type={"text"}
-                  placeholder={"Enter phone..."}
+                  placeholder={"Nhập số điện thoại..."}
                   onChange={(e) => handleChangeInput(e, 'phone')}
                   onBlur={() => validateBlur('phone')}
                   value={dataInfoUser.phone}
@@ -175,11 +183,11 @@ function EditProfile () {
                 <div className={styles.label}>Mật khẩu hiện tại *</div>
                 <InputMASQ
                   type={"password"}
-                  placeholder={"Enter current password..."}
-                  onChange={(e) => handleChangeInput(e, 'currentPassword', 'FORM_CHANGE_PASSWORD')}
-                  onBlur={() => validateBlur('currentPassword', 'FORM_CHANGE_PASSWORD')}
-                  value={dataChangePassword.currentPassword}
-                  error={errorChangePassword.currentPassword}
+                  placeholder={"Nhập mật khẩu hiện tại..."}
+                  onChange={(e) => handleChangeInput(e, 'oldPassword', 'FORM_CHANGE_PASSWORD')}
+                  onBlur={() => validateBlur('oldPassword', 'FORM_CHANGE_PASSWORD')}
+                  value={dataChangePassword.oldPassword}
+                  error={errorChangePassword.oldPassword}
                 />
               </div>
 
@@ -187,11 +195,11 @@ function EditProfile () {
                 <div className={styles.label}>Mật khẩu mới *</div>
                 <InputMASQ
                   type={"password"}
-                  placeholder={"Enter new password..."}
-                  onChange={(e) => handleChangeInput(e, 'password', 'FORM_CHANGE_PASSWORD')}
-                  onBlur={() => validateBlur('password', 'FORM_CHANGE_PASSWORD')}
-                  value={dataChangePassword.password}
-                  error={errorChangePassword.password}
+                  placeholder={"Nhập mật khẩu mới..."}
+                  onChange={(e) => handleChangeInput(e, 'newPassword', 'FORM_CHANGE_PASSWORD')}
+                  onBlur={() => validateBlur('newPassword', 'FORM_CHANGE_PASSWORD')}
+                  value={dataChangePassword.newPassword}
+                  error={errorChangePassword.newPassword}
                 />
               </div>
 
@@ -199,7 +207,7 @@ function EditProfile () {
                 <div className={styles.label}>Xác nhận mật khẩu *</div>
                 <InputMASQ
                   type={"password"}
-                  placeholder={"Enter confirm new password..."}
+                  placeholder={"Nhập xác nhận mật khẩu mới..."}
                   onChange={(e) => handleChangeInput(e, 'confirmPassword', 'FORM_CHANGE_PASSWORD')}
                   onBlur={() => validateBlur('confirmPassword', 'FORM_CHANGE_PASSWORD')}
                   value={dataChangePassword.confirmPassword}

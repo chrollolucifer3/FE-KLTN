@@ -5,7 +5,7 @@ import {
 import {setTitlePage} from "../app";
 
 function* loadRouteData () {
-  yield put(setTitlePage('Dashboard'))
+  yield put(setTitlePage('Trang chủ'));
 }
 
 function* handleActions () {

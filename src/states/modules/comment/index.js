@@ -1,6 +1,7 @@
 import {
     createSlice
 } from "@reduxjs/toolkit";
+// import { update } from "lodash";
 
 const commentSlice = createSlice({
     name: 'comment',
@@ -48,6 +49,15 @@ const commentSlice = createSlice({
             ...state,
             isLoadingBtnCreateComment: false,
         }),
+        updateComment: (state) => ({
+            ...state,
+        }),
+        updateCommentSuccess: (state) => ({
+            ...state,
+        }),
+        updateCommentFail: (state) => ({
+            ...state,
+        }),
         deleteComment: (state) => ({
             ...state,
         }),
@@ -84,7 +94,10 @@ export const {
     deleteCommentFail,
     getCommentInMonth,
     getCommentInMonthSuccess,
-    getCommentInMonthFail
+    getCommentInMonthFail,
+    updateComment,
+    updateCommentSuccess,
+    updateCommentFail
 } = commentSlice.actions
 
 export default commentSlice.reducer;

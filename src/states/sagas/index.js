@@ -7,6 +7,7 @@ import routeSaga from '../modules/routing/saga';
 import loadAuthSaga from '../modules/auth/saga';
 import loadCommentSaga from '../modules/comment/saga';
 import loadReportSaga from '../modules/report/saga';
+import loadProfileSaga from '../modules/profile/saga';
 // import loadEmployeeSaga from '../modules/employee/saga';
 // import loadDocumentSaga from '../modules/document/saga';
 
@@ -17,6 +18,8 @@ export default function* sagas() {
     fork(loadAuthSaga),
     fork(loadCommentSaga),
     fork(loadReportSaga),
+    fork(loadProfileSaga),
+
     // fork(loadEmployeeSaga),
     // fork(loadDocumentSaga)
   ]);

@@ -4,10 +4,7 @@ import styles from "./styles.module.scss";
 import TableCustom from "../../components/UI/Table";
 import InputMASQ from "../../components/UI/Input";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllReport,
-  deleteCommentOrPostById,
-} from "../../api/report";
+import { getAllReport, deleteCommentOrPostById } from "../../api/report";
 import ReportContentModal from "../../components/UI/Modal/ReportContentModal";
 import ConfirmActionModal from "../../components/UI/Modal/ConfirmActionModal";
 import { EyeFilled, DeleteOutlined } from "@ant-design/icons";
@@ -81,6 +78,7 @@ function Report() {
     const data = {
       ...(record.postId && { postId: record.postId }),
       ...(record.commentId && { commentId: record.commentId }),
+      reportId: record.id,
     };
     setSelectedActionReport(data);
     setIsConfirmModalOpen(true);
@@ -94,14 +92,8 @@ function Report() {
   const handleConfirmAction = async (data) => {
     try {
       await dispatch(deleteCommentOrPostById(data));
-      message.success(
-        data.postId
-          ? "Khóa bài viết thành công!"
-          : "Xóa bình luận thành công!"
-      );
       dispatch(getAllReport(dataFilter));
     } catch (err) {
-      console.error(err);
       message.error("Đã có lỗi xảy ra!");
     } finally {
       handleCloseConfirmModal();
@@ -133,7 +125,7 @@ function Report() {
       key: "reason",
       render: (text, record) => <span>{record.reason}</span>,
     },
-       {
+    {
       title: "Trạng thái",
       dataIndex: "status",
       key: "status",
@@ -175,13 +167,17 @@ function Report() {
           >
             <EyeFilled />
           </span>
-          <span
-            title="Xoá hoặc chặn"
-            onClick={() => handleOpenConfirmModal(record)}
-            style={{ cursor: "pointer", color: "red", fontSize: 18 }}
-          >
-            <DeleteOutlined />
-          </span>
+
+          {/* Ẩn nút xoá nếu status === 'APPROVE' */}
+          {record.status !== "APPROVED" && (
+            <span
+              title="Xoá hoặc chặn"
+              onClick={() => handleOpenConfirmModal(record)}
+              style={{ cursor: "pointer", color: "red", fontSize: 18 }}
+            >
+              <DeleteOutlined />
+            </span>
+          )}
         </div>
       ),
     },
@@ -193,7 +189,7 @@ function Report() {
         <div className={styles.mainWrap}>
           <div className={styles.headerMainWrap}>
             <span className={styles.title}>
-              Total records ({paginationListReport.totalRecord})
+              Tổng số bản ghi ({paginationListReport.totalRecord})
             </span>
           </div>
 

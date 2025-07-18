@@ -238,7 +238,7 @@ function Post() {
         <div className={styles.mainWrap}>
           <div className={styles.headerMainWrap}>
             <span className={styles.title}>
-              Total records ({paginationListPost.totalRecord})
+              Tổng số bản ghi ({paginationListPost.totalRecord})
             </span>
           </div>
 

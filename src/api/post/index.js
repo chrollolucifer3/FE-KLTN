@@ -62,7 +62,10 @@ import {
   deleteCommentFail,
   getCommentInMonth,
   getCommentInMonthSuccess,
-  getCommentInMonthFail
+  getCommentInMonthFail,
+  updateComment,
+  updateCommentSuccess,
+  updateCommentFail
 } from "states/modules/comment/index";
 
 export const handleCreatePost = (data) => async (dispatch, getState) => {
@@ -432,6 +435,20 @@ export const getPostsLike = (dataFilter = {
     apiPath: path,
     actionTypes: [getPostsLikeByUser, getPostsLikeByUserSuccess, getPostsLikeByUserFail],
     variables: {},
+    dispatch,
+    getState,
+  });
+}
+
+export const updateCommentPost = (data) => async (dispatch, getState) => {
+  return callApi({
+    method: 'post',
+    apiPath: `comment/update`,
+    actionTypes: [updateComment,
+      updateCommentSuccess,
+      updateCommentFail
+    ],
+    variables: data,
     dispatch,
     getState,
   });

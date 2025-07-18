@@ -49,7 +49,7 @@ const statusOptions = [
   { value: "APPROVED", label: "Đã duyệt" },
   { value: "PENDING", label: "Chờ duyệt" },
   { value: "REJECTED", label: "Bị từ chối" },
-  { value: "BLOCKED", label: "Bị khóa" },
+  // { value: "BLOCKED", label: "Bị khóa" },
 ];
 
 const ListMyPosts = () => {
@@ -180,7 +180,7 @@ const ListMyPosts = () => {
                         </Tag>
                       </Space>
 
-                      {post.status !== "BLOCK" && (
+                      {(post.status !== "BLOCK" && post.status !== "REJECTED") && (
                         <div className={styles.editButton}>
                           <Link to={`/edit-post/${post.id}`}>
                             <Button type="primary" icon={<EditOutlined />}>

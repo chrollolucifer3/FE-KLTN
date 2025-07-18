@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from './styles.module.scss';
-import './styles.scss';
-import {Pagination, Table} from 'antd';
+import React from "react";
+import styles from "./styles.module.scss";
+import "./styles.scss";
+import { Pagination, Table } from "antd";
 import PropTypes from "prop-types";
 
 TableMASQ.prototype = {
@@ -9,19 +9,27 @@ TableMASQ.prototype = {
   dataSource: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
   rowKey: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
-}
+  onChange: PropTypes.func.isRequired,
+};
 
 TableMASQ.defaultProps = {
   columns: [],
   dataSource: [],
   loading: false,
-  rowKey: 'id',
-  onChange: () => {}
-}
+  rowKey: "id",
+  onChange: () => {},
+};
 
 function TableMASQ(props) {
-  let {columns, dataSource, loading, rowKey, pagination, onChangeCurrentPage, onChange} = props
+  let {
+    columns,
+    dataSource,
+    loading,
+    rowKey,
+    pagination,
+    onChangeCurrentPage,
+    onChange,
+  } = props;
 
   return (
     <div className={styles.tableWrap}>
@@ -37,11 +45,15 @@ function TableMASQ(props) {
 
       <div className={styles.paginationWrap}>
         <span className={styles.textPagination}>
-          <span>Showing {(pagination.perPage * (pagination.currentPage - 1)) + 1} to</span>
-          <span> {pagination.totalRecord > (pagination.perPage * pagination.currentPage) ?
-            pagination.perPage * pagination.currentPage : pagination.totalRecord }
+          <span>
+            Hiển thị từ {pagination.perPage * (pagination.currentPage - 1) + 1}{" "}
+            đến{" "}
+            {pagination.totalRecord >
+            pagination.perPage * pagination.currentPage
+              ? pagination.perPage * pagination.currentPage
+              : pagination.totalRecord}
           </span>
-          <span> of {pagination.totalRecord} entries</span>
+          <span> trong tổng số {pagination.totalRecord} mục</span>
         </span>
 
         <Pagination
@@ -55,4 +67,4 @@ function TableMASQ(props) {
   );
 }
 
-export default TableMASQ
+export default TableMASQ;

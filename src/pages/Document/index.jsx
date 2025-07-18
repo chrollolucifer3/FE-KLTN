@@ -186,7 +186,7 @@ function Document() {
         <div className={styles.mainWrap}>
           <div className={styles.headerMainWrap}>
             <span className={styles.title}>
-              Total records ({paginationListDocument.totalRecord})
+              Tổng số bản ghi ({paginationListDocument.totalRecord})
             </span>
           </div>
 

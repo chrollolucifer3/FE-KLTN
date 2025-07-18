@@ -7,7 +7,7 @@ import {
 export const handleUpdateInfoUser = (data) => async (dispatch, getState) => {
   return callApi({
     method: 'post',
-    apiPath: `update-self`,
+    apiPath: `users/update-self`,
     actionTypes: [updateInfoUser, updateInfoUserSuccess, updateInfoUserFail],
     variables: data,
     dispatch,
@@ -18,7 +18,7 @@ export const handleUpdateInfoUser = (data) => async (dispatch, getState) => {
 export const handleChangePassword = (data) => async (dispatch, getState) => {
   return callApi({
     method: 'post',
-    apiPath: `change-password`,
+    apiPath: `auth/updatePassword`,
     actionTypes: [changePassword, changePasswordSuccess, changePasswordFail],
     variables: data,
     dispatch,

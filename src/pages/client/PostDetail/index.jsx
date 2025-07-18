@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MainLayout from "../../../layouts/Client/MainLayout";
 import dayjs from "dayjs";
+import { reportComment } from "../../../api/post";
 import {
   Typography,
   Spin,
@@ -11,6 +12,8 @@ import {
   Button,
   Space,
   message,
+  Modal,
+  Input,
 } from "antd";
 import {
   LikeOutlined,
@@ -20,6 +23,7 @@ import {
   UserDeleteOutlined,
   CalendarOutlined,
   EyeOutlined,
+  FlagOutlined,
 } from "@ant-design/icons";
 import { getPost, postLike } from "../../../api/post";
 import { followUser, unfollowAuthor } from "../../../api/employee";
@@ -44,6 +48,10 @@ const PostDetail = () => {
   const [likeCount, setLikeCount] = useState(0);
   const [isFollowing, setIsFollowing] = useState(false);
   const [followersCount, setFollowersCount] = useState(0);
+
+  // Modal báo cáo bài viết
+  const [reportModalVisible, setReportModalVisible] = useState(false);
+  const [reportReason, setReportReason] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -110,6 +118,28 @@ const PostDetail = () => {
     }
   };
 
+  const handleReportPost = async () => {
+    if (!reportReason.trim()) {
+      message.warning("Vui lòng nhập lý do báo cáo");
+      return;
+    }
+
+    try {
+      await dispatch(
+        reportComment({
+          postId: id,
+          reason: reportReason,
+          userId: authUser.id,
+        })
+      );
+      message.success("Đã gửi báo cáo bài viết");
+      setReportModalVisible(false);
+      setReportReason("");
+    } catch (error) {
+      message.error("Gửi báo cáo thất bại");
+    }
+  };
+
   return (
     <MainLayout>
       <div className={styles.postContainer}>
@@ -127,9 +157,6 @@ const PostDetail = () => {
                   <CalendarOutlined />{" "}
                   {dayjs(post.createdAt).format("DD/MM/YYYY")}
                 </Text>
-                {/* <Text type="secondary">
-                  <LikeOutlined /> {post.likesCount}
-                </Text> */}
                 <Text type="secondary">
                   <EyeOutlined /> {post.viewsCount}
                 </Text>
@@ -151,9 +178,7 @@ const PostDetail = () => {
               </div>
 
               <div className={styles.metaRow}>
-                {" "}
-                Danh mục:
-                <Tag color="blue">{post.categoryName || "--"}</Tag>
+                Danh mục: <Tag color="blue">{post.categoryName || "--"}</Tag>
               </div>
             </div>
 
@@ -166,6 +191,14 @@ const PostDetail = () => {
                 {likeCount}
               </Button>
               <Button icon={<ShareAltOutlined />} onClick={handleShare} />
+              {post.userId !== authUser.id && (
+                <Button
+                  icon={<FlagOutlined />}
+                  onClick={() => setReportModalVisible(true)}
+                >
+                  Báo cáo
+                </Button>
+              )}
             </Space>
 
             <Divider />
@@ -185,6 +218,23 @@ const PostDetail = () => {
       <div className={styles.commentSection}>
         <CommentList postId={id} />
       </div>
+
+      {/* Modal báo cáo bài viết */}
+      <Modal
+        title="Báo cáo bài viết"
+        open={reportModalVisible}
+        onCancel={() => setReportModalVisible(false)}
+        onOk={handleReportPost}
+        okText="Gửi"
+        cancelText="Hủy"
+      >
+        <Input.TextArea
+          rows={4}
+          placeholder="Nhập lý do bạn muốn báo cáo bài viết này..."
+          value={reportReason}
+          onChange={(e) => setReportReason(e.target.value)}
+        />
+      </Modal>
     </MainLayout>
   );
 };
@@ -197,10 +247,8 @@ const normalizeContent = (html) => {
     .replace(/<p>\s*\$\$\s*<\/p>/g, "$$")
     .replace(/<br\s*\/?>/g, "")
     .replace(/src="(?!http)([^"]+)"/g, (match, p1) => {
-      // Nếu đường dẫn src không bắt đầu bằng http, thêm localhost prefix
       return `src="http://localhost:8080${p1.startsWith("/") ? "" : "/"}${p1}"`;
     });
 };
-
 
 export default PostDetail;

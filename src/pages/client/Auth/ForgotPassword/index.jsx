@@ -10,8 +10,11 @@ import { forgotPassword } from "../../../../api/auth";
 import { useDispatch } from "react-redux";
 import { setErrorDataForgotPassword } from "../../../../states/modules/auth";
 import { useSelector } from "react-redux";
+// import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function ForgotPassword() {
+  const navigate = useNavigate();
   const [dataForgotPassword, setDataForgotPassword] = useState({email : ''})
   const forgotPasswordError = useSelector(state => state.auth.forgotPasswordError);
 
@@ -35,12 +38,13 @@ function ForgotPassword() {
     return validate.isError;
   }
 
-  const handleConfirmLogin = () => {
+  const handleConfirmLogin = async () => {
     let validate = handleCheckValidateConfirm(dataForgotPassword, forgotPasswordError);
     setErrorDataForgotPassword(validate.dataError);
     if (!validate.isError) {
-      
-     dispatch(forgotPassword(dataForgotPassword))
+
+     await dispatch(forgotPassword(dataForgotPassword))
+     navigate('/login');
     }
   }
 

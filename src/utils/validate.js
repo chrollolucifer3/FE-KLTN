@@ -75,26 +75,26 @@ export const isValidate = (data, type, errors) => {
         dataError.address = '';
       }
       break;
-    case 'currentPassword':
-      if (data.currentPassword.length === 0) {
-        dataError.currentPassword = 'Không được để trống trường này!';
+    case 'oldPassword':
+      if (data.oldPassword.length === 0) {
+        dataError.oldPassword = 'Không được để trống trường này!';
         error = true;
-      } else if (!isValidPassword(data.currentPassword)) {
-        dataError.currentPassword = "Mật khẩu phải có ít nhất 6 ký tự và tối đa 50 ký tự, bao gồm chữ hoa và chữ thường, số và ký tự đặc biệt."
+      } else if (!isValidPassword(data.oldPassword)) {
+        dataError.oldPassword = "Mật khẩu phải có ít nhất 6 ký tự và tối đa 50 ký tự, bao gồm chữ hoa và chữ thường, số và ký tự đặc biệt."
         error = true
       } else {
-        dataError.currentPassword = '';
+        dataError.oldPassword = '';
       }
       break;
-    case 'password':
-      if (data.password.length === 0) {
-        dataError.password = 'Không được để trống trường này!';
+    case 'newPassword':
+      if (data.newPassword.length === 0) {
+        dataError.newPassword = 'Không được để trống trường này!';
         error = true;
-      } else if (!isValidPassword(data.password)) {
-        dataError.password = "Mật khẩu phải có ít nhất 6 ký tự và tối đa 50 ký tự, bao gồm chữ hoa và chữ thường, số và ký tự đặc biệt."
+      } else if (!isValidPassword(data.newPassword)) {
+        dataError.newPassword = "Mật khẩu phải có ít nhất 6 ký tự và tối đa 50 ký tự, bao gồm chữ hoa và chữ thường, số và ký tự đặc biệt."
         error = true
       } else {
-        dataError.password = '';
+        dataError.newPassword = '';
       }
       break;
     case 'confirmPassword':

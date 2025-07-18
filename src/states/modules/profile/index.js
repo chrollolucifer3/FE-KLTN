@@ -4,14 +4,14 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState: {
     errorInfoUser: {
-      name: '',
+      fullName: '',
       email: '',
       phone: ''
     },
     loadingBtnUpdateInfoUser: false,
     errorChangePassword: {
-      currentPassword: '',
-      password: '',
+      oldPassword: '',
+      newPassword: '',
       confirmPassword: ''
     },
     loadingBtnChangePassword: false,
